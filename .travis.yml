@@ -14,7 +14,8 @@ after_success:
   - docker build -t dewaa97/multi-server ./server
   - docker build -t dewaa97/multi-worker ./worker
   # Log in to the docker CLI
-  - echo "$docker-password" | docker login -u "$docker-username" --password-stdin
+  #- echo "$docker-password" | docker login -u "$docker-username" --password-stdin
+  - docker login -u "$docker-username" -p "$docker-password" --password-stdin
   # Take those images and push them to docker hub
   - docker push dewaa97/multi-client
   - docker push dewaa97/multi-nginx
